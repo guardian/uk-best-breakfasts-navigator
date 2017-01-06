@@ -3,3 +3,18 @@
 @import "mq";
 @import "general";
 @import "share";
+
+
+#uk-breakfasts-navigator {
+    width: 100%;
+    background-color: #ff0000;
+
+
+    #nav-list {
+        h3 {
+            display: inline-block;
+            cursor: pointer;
+            background: #00ff00;
+        }
+    }
+}
