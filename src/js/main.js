@@ -26,7 +26,7 @@ export function init(el, context, config, mediator) {
 
 function buildView( el ) {
 
-    var i, buttonTexts = [], innerText, htmlString = '', navs;
+    var i, buttonTexts = [], innerText, htmlString = '', navs, btn;
 
     breakfastSections = document.getElementsByTagName("blockquote")
 
@@ -49,6 +49,10 @@ function buildView( el ) {
 
     navs.addEventListener ("click", navClick, false);
 
+    btn = document.getElementById("back-to-top-button");
+
+    btn.addEventListener ("click", backToTop, false);
+
     function navClick(e) {
         //alert(e.target);
         i = e.target.getAttribute('data-ind');
@@ -60,7 +64,14 @@ function buildView( el ) {
             element.scrollIntoView(alignWithTop);
 
         }
-}
+    }
+
+    function backToTop(e) {
+       
+            var element = document.getElementById("uk-breakfasts-navigator");
+            var alignWithTop = true;
+            element.scrollIntoView(alignWithTop);
+    }
 
 }
 
