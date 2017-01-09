@@ -4,7 +4,11 @@ import share from './lib/share'
 
 var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 
+var navElement, breakfastBackBtn;
+
 var breakfastSections;
+
+var submeta;
 
 export function init(el, context, config, mediator) {
     el.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
@@ -15,6 +19,7 @@ export function init(el, context, config, mediator) {
     //     crossOrigin: true,
     //     success: (resp) => el.querySelector('.test-msg').innerHTML = `Your IP address is ${resp.ip}`
     // });
+     
 
     buildView( el );
 
@@ -28,18 +33,25 @@ function buildView( el ) {
 
     var i, buttonTexts = [], innerText, htmlString = '', navs, btn;
 
-    breakfastSections = document.getElementsByTagName("blockquote")
+    navElement = document.getElementById("uk-breakfasts-navigator");
+
+    submeta = document.getElementsByClassName("submeta")[0];
+
+    breakfastSections = document.getElementsByTagName("blockquote");
 
     for(i = 0; i < breakfastSections.length; i++) {
 
-        innerText = breakfastSections[i].getElementsByTagName("h2")[0].innerHTML;
+        //innerText = breakfastSections[i].getElementsByTagName("h2")[0].innerHTML;
+        innerText = breakfastSections[i].textContent || breakfastSections[i].innerText || "";
         buttonTexts.push( innerText );
 
     }
 
+    htmlString += '<li class="jumpto" >Jump to</li>';
+
     for(i = 0; i < buttonTexts.length; i++) {
 
-        htmlString += '<h3 data-ind="' + i + '">' + buttonTexts[i] + '</h3>';
+        htmlString += '<li><span data-ind="' + i + '">' + buttonTexts[i] + '</span></li>';
 
     }
 
@@ -49,9 +61,9 @@ function buildView( el ) {
 
     navs.addEventListener ("click", navClick, false);
 
-    btn = document.getElementById("back-to-top-button");
+   breakfastBackBtn = document.getElementById("back-to-top-button");
 
-    btn.addEventListener ("click", backToTop, false);
+    breakfastBackBtn.addEventListener ("click", backToTop, false);
 
     function navClick(e) {
         //alert(e.target);
@@ -68,10 +80,51 @@ function buildView( el ) {
 
     function backToTop(e) {
        
-            var element = document.getElementById("uk-breakfasts-navigator");
+           
             var alignWithTop = true;
-            element.scrollIntoView(alignWithTop);
+            navElement.scrollIntoView(alignWithTop);
     }
+
+    window.addEventListener('scroll', throttle(checkButton, 200));
+    window.addEventListener('touchend', throttle(checkButton, 200));
+
+    function throttle(fn, wait) {
+        var time = Date.now();
+        return function() {
+            if ((time + wait - Date.now()) < 0) {
+            fn();
+            time = Date.now();
+            }
+        }
+    }
+
+    function checkButton() {
+        var rect = navElement.getBoundingClientRect();
+        var rect2 = submeta.getBoundingClientRect();
+
+        
+        if ( rect.bottom < 20 && rect2.top > 400 ) {
+
+           if (breakfastBackBtn.classList.contains('fade')) {
+                
+                breakfastBackBtn.className = breakfastBackBtn.className.replace(/\bfade\b/,'');
+                
+            }
+
+        } else {
+
+            if (breakfastBackBtn.classList.contains('fade')) {
+                return;
+            }
+
+            breakfastBackBtn.className += " fade";
+
+        }
+        
+ 
+    }
+
+
 
 }
 

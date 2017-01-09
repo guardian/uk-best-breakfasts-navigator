@@ -12,20 +12,83 @@
 
 #uk-breakfasts-navigator {
     width: 100%;
-    background-color: #fff;
+    background-color: #f8e8ef;
+    border-top: 1px solid #b82266;
+
+    #uk-breakfasts-navigator-inner {
+        padding: 0;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Guardian Egyptian Web';
+    }
 
 
     #nav-list {
+        // line-height: 12px;
+        margin: 0;
+        padding: 6px 5px 6px 5px;
+        list-style-position: inside;
+
+        li {
+            font-size: 16px;
+            line-height: 22px;
+            list-style: none;
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+            display: inline-block;
+            margin-right: 6px;
+            cursor: pointer;
+            color: #b82266;
+
+            @media screen and (min-width: 600px) {
+                 font-size: 18px;
+                line-height: 24px;
+            }
+
+            &.jumpto {
+                 opacity: 1;
+                 cursor: auto;
+                 color: #333;
+                 &::after {
+                    margin-left: 6px;
+               
+                }
+            }
+            
+
+            span {
+                text-decoration: none;
+                &:hover {
+                text-decoration: underline;
+                }
+            }
+
+             &::before {
+                display: none!important;
+            }
+            
+
+            &::after {
+                content: '/';
+                // margin-left: 6px;
+                opacity: 1;
+                color: #333;
+            }
+        }
+        
         h3 {
             display: inline-block;
             cursor: pointer;
-            background: #767676;
+            background: #b82266;
             color: #fff;
-            padding: 10px 12px;
+            padding: 2px 12px 0px 12px;
             border-radius: 16px;
-            font-size: 16px;
+            font-size: 12px;
             font-family: 'Guardian Sans Web';
-            margin: 0 12px 12px 0;
+            font-weight: bold;
+            margin: 0 12px 8px 0;
 
             &:hover {
 
@@ -41,11 +104,19 @@
         background-color: #333;
         cursor: pointer;
         position : fixed;
-        right: 5px;
-        bottom: 50px;
+        left: 50%;
+        margin-left: -22px;
+        bottom: 20px;
         border-radius: 50%;
         text-align: center;
         line-height: 3;
+        z-index: 999999999999999999;
+        opacity: 1;
+        -webkit-transition: opacity 0.5s ease-in;
+        -moz-transition: opacity 0.5s ease-in;
+        -o-transition: opacity 0.5s ease-in;
+        -ms-transition: opacity 0.5s ease-in;
+        transition: opacity 0.5s ease-in;
 
         span {
             display: none;
@@ -53,5 +124,10 @@
 
         svg {
             fill: #fff;
+        }
+
+        &.fade {
+            opacity: 0;
+            pointer-events: none;
         }
     }
