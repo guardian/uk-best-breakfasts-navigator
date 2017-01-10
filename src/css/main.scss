@@ -29,7 +29,7 @@
     #nav-list {
         // line-height: 12px;
         margin: 0;
-        padding: 6px 5px 6px 5px;
+        padding: 6px 5px 12px 5px;
         list-style-position: inside;
 
         li {
@@ -42,7 +42,7 @@
             cursor: pointer;
             color: #b82266;
 
-            @media screen and (min-width: 600px) {
+            @media screen and (min-width: 740px) {
                  font-size: 18px;
                 line-height: 24px;
             }
@@ -107,7 +107,7 @@
         left: 50%;
         margin-left: -22px;
         bottom: 20px;
-        border-radius: 50%;
+        border-radius: 22px;
         text-align: center;
         line-height: 3;
         z-index: 999999999999999999;
@@ -129,5 +129,49 @@
         &.fade {
             opacity: 0;
             pointer-events: none;
+        }
+
+        @media screen and (min-width: 740px) {
+               color: #fff;
+               width: 130px;
+             margin-left: -65px;
+               font-family: 'Guardian Sans Web';
+               font-size: 14px;
+               bottom: 40px;
+                text-align: left;
+
+                 svg {
+                // position: absolute;
+                // right: 0;
+                // top: 0;
+                padding-top: 10px;
+                padding-right: 10px;
+                float: right;
+                }
+               
+                span {
+                padding-left: 20px;
+                display: inline;
+                }
+
+        }
+
+    }
+
+    blockquote {
+        margin-left: 0!important;
+        h2, h2 strong {
+        padding-top: 20px!important;
+        font-style: normal!important;
+        font-weight: 200!important;
+        font-size: 36px!important;
+        font-family: "Guardian Egyptian Web",Georgia,serif!important;
+        line-height: 42px!important;
+
+        @media screen and (min-width: 740px) {
+                 font-size: 70px!important;
+                line-height: 72px!important;
+                 padding-top: 40px!important;
+        }
         }
     }

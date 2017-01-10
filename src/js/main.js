@@ -8,7 +8,7 @@ var navElement, breakfastBackBtn;
 
 var breakfastSections;
 
-var submeta;
+var submeta, tags;
 
 export function init(el, context, config, mediator) {
     el.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
@@ -36,6 +36,7 @@ function buildView( el ) {
     navElement = document.getElementById("uk-breakfasts-navigator");
 
     submeta = document.getElementsByClassName("submeta")[0];
+    tags = document.getElementsByClassName("tags")[0];
 
     breakfastSections = document.getElementsByTagName("blockquote");
 
@@ -99,9 +100,18 @@ function buildView( el ) {
     }
 
     function checkButton() {
-        var rect = navElement.getBoundingClientRect();
-        var rect2 = submeta.getBoundingClientRect();
 
+        var rect = navElement.getBoundingClientRect();
+        var rect2;
+        var bottomEl = submeta;
+
+        if ( submeta !== undefined ) {
+            rect2 = submeta.getBoundingClientRect();
+        } else if ( tags !== undefined ) {
+            rect2 = tags.getBoundingClientRect();
+        } else {
+            rect2 = rect;
+        }
         
         if ( rect.bottom < 20 && rect2.top > 400 ) {
 
