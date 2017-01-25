@@ -33,7 +33,7 @@ function buildView( el ) {
 
     var i, buttonTexts = [], innerText, htmlString = '', navs, btn;
 
-    navElement = document.getElementById("uk-elephants-navigator");
+    navElement = document.getElementById("elephant-navigator");
 
     submeta = document.getElementsByClassName("submeta")[0];
     tags = document.getElementsByClassName("tags")[0];
