@@ -4,9 +4,9 @@ import share from './lib/share'
 
 var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 
-var navElement, breakfastBackBtn;
+var navElement, elephantBackBtn;
 
-var breakfastSections;
+var elephantSections;
 
 var submeta, tags;
 
@@ -33,17 +33,17 @@ function buildView( el ) {
 
     var i, buttonTexts = [], innerText, htmlString = '', navs, btn;
 
-    navElement = document.getElementById("uk-breakfasts-navigator");
+    navElement = document.getElementById("uk-elephants-navigator");
 
     submeta = document.getElementsByClassName("submeta")[0];
     tags = document.getElementsByClassName("tags")[0];
 
-    breakfastSections = document.getElementsByTagName("blockquote");
+    elephantSections = document.getElementsByTagName("blockquote");
 
-    for(i = 0; i < breakfastSections.length; i++) {
+    for(i = 0; i < elephantSections.length; i++) {
 
-        //innerText = breakfastSections[i].getElementsByTagName("h2")[0].innerHTML;
-        innerText = breakfastSections[i].textContent || breakfastSections[i].innerText || "";
+        //innerText = elephantSections[i].getElementsByTagName("h2")[0].innerHTML;
+        innerText = elephantSections[i].textContent || elephantSections[i].innerText || "";
         buttonTexts.push( innerText );
 
     }
@@ -62,9 +62,9 @@ function buildView( el ) {
 
     navs.addEventListener ("click", navClick, false);
 
-   breakfastBackBtn = document.getElementById("back-to-top-button");
+   elephantBackBtn = document.getElementById("back-to-top-button");
 
-    breakfastBackBtn.addEventListener ("click", backToTop, false);
+    elephantBackBtn.addEventListener ("click", backToTop, false);
 
     function navClick(e) {
         //alert(e.target);
@@ -72,7 +72,7 @@ function buildView( el ) {
 
         if ( i !== null ) {
 
-            var element = breakfastSections[i];
+            var element = elephantSections[i];
             var alignWithTop = true;
             element.scrollIntoView(alignWithTop);
 
@@ -115,19 +115,19 @@ function buildView( el ) {
         
         if ( rect.bottom < 20 && rect2.top > 400 ) {
 
-           if (breakfastBackBtn.classList.contains('fade')) {
+           if (elephantBackBtn.classList.contains('fade')) {
                 
-                breakfastBackBtn.className = breakfastBackBtn.className.replace(/\bfade\b/,'');
+                elephantBackBtn.className = elephantBackBtn.className.replace(/\bfade\b/,'');
                 
             }
 
         } else {
 
-            if (breakfastBackBtn.classList.contains('fade')) {
+            if (elephantBackBtn.classList.contains('fade')) {
                 return;
             }
 
-            breakfastBackBtn.className += " fade";
+            elephantBackBtn.className += " fade";
 
         }
         
