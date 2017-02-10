@@ -4,6 +4,19 @@
 @import "general";
 @import "share";
 
+.element--immersive{
+   margin-bottom: 0 !important;
+   background-color:#FFF
+}
+
+html{
+    body{
+        background-color:#FFF ;
+        background:#FFF ;
+
+    }
+}
+
 .interactive-container {
     padding: 0;
     margin: 0;
@@ -67,7 +80,7 @@
             }
 
              &::before {
-                display: none!important;
+                display: none;
             }
             
 
@@ -175,24 +188,24 @@
 
 
    blockquote {
-        margin-left: 0!important;
-        border-top: 1px dotted #333 !important;
-        margin-top: 48px !important;
+        margin-left: 0;
+        border-top: 1px dotted #333 ;
+        margin-top: 48px ;
 
         h2, h2 strong {
             
-        padding-top: 0 !important;
-        font-style: normal!important;
-        font-weight: 200!important;
-        font-size: 28px!important;
-        font-family: "Guardian Egyptian Web",Georgia,serif!important;
-        line-height: 32px!important;
+        padding-top: 0 ;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 28px;
+        font-family: "Guardian Egyptian Web",Georgia,serif;
+        line-height: 32px;
 
         
 
         @media screen and (min-width: 740px) {
-                font-size: 40px!important;
-                line-height: 44px!important;
+                font-size: 40px;
+                line-height: 44px;
             }
 
 
@@ -201,6 +214,16 @@
     }
 
     blockquote:first-of-type  { 
-             margin-top: 36px !important;  
-            border-top: none !important;
+             margin-top: 36px ;  
+            border-top: none ;
         }
+
+
+
+#article{
+    .element--immersive{
+       margin-bottom: 0 !important;
+       background-color: #FFF !important;
+    }
+
+}

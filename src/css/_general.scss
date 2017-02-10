@@ -1,8 +1,20 @@
+
+
+
 body,
 figure.interactive {
     margin: 0;
     padding: 0;
-    // background-color: #dcdcdc;
+    background-color: #FFF ;
+}
+
+.elephant-wrapper{
+    background:#FFF;
+}
+
+.element--immersive{
+    background: #FFF ;
+    background-color: #FFF ;
 }
 
 // Link styles don't exist on the app
@@ -22,7 +34,6 @@ a {
 .interactive-container {
     margin: 0 auto;
     box-sizing: border-box;
-    background-color: white;
 
     padding: 10px;
     @include mq(mobileLandscape) {
